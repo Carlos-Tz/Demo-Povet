@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col s12">
       <div class="card">
-        <span class="card-title"><b>Datos de los Clientes</b></span>
+        <span class="card-title"><b style="margin-left: 2em;">Datos de los Clientes</b></span>
 
         <div class="card-content">
            <table *ngIf="data_" datatable [dtOptions]="dtOptions" class="row-border hover">
@@ -14,23 +14,20 @@
               <tr>
                 <th>Nombre</th>
                 <th>Teléfono</th>
-                <th>No. de Orden</th>
-                <th>Fecha Ingreso</th>
+                <th>Folio</th>
+                <th>Fecha</th>
                 <th>Marca y Tipo</th>
-                <th>Modelo</th>
-                <th>Más...</th>
+                <th>Ajustador</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let form of Form;let i=index; ">
+              <tr *ngFor="let form of Form;let i=index; " [routerLink]="['/edit/', form.$key]" style="cursor: pointer;">
                 <td>{{form.nombre}}</td>
                 <td>{{form.tel}}</td>
                 <td>{{form.orden}}</td>
-                <td>{{form.ingreso}}</td>
-                <td>{{form.marca}}</td>
-                <td>{{form.modelo}}</td>
-                <td><a [routerLink]="['/edit/', form.$key]"
-                    class="btn-floating btn-small waves-effect waves-light teal">+</a></td>
+                <td>{{form.dia}}/{{form.mes}}/{{form.anio}}</td>
+                <td>{{form.marca}}, {{form.tipo}}</td>
+                <td>{{form.ajusta}}</td>
               </tr>
             </tbody>
           </table>

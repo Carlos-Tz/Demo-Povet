@@ -1,222 +1,257 @@
 <app-navbar [submitSurveyData]="submitSurveyData" [myForm]="myForm" [save]="save">
 </app-navbar>
-<form [formGroup]="myForm" (ngSubmit)="submitSurveyData()" novalidate autocomplete="off">
-<div class="app">
-  <section>
-    <div class="page">
-      <div class="inner">
-        <table>
-          <tr>
-            <td style="width: 10.5cm;"><img style="width:100%;" src="assets/logo.jpg"></td>
-            <td style="width: 1cm;"></td>
-            <td><h1 style="font-size: 2.5em;">ORDEN DE REPARACIÓN </h1><input id="orden_" style="font-size: 1.5em; color: red; font-weight: 700;" type="number" formControlName="orden" [(ngModel)]="form_.orden"></td>
-          </tr>
-          <tr>
-            <td style="vertical-align: top;">
-              <table id="table1_" style="margin-bottom: 0; font-size: 0.9em;">
-                <tr>
-                  <th colspan="6">DATOS DEL VEHÍCULO</th>
-                </tr>
-                <tr>
-                  <td colspan="3" style="min-width: 6cm;">MARCA Y TIPO <input type="text"  formControlName="marca" [(ngModel)]="form_.marca"></td>
-                  <td colspan="2">MODELO <input type="text"  formControlName="modelo" [(ngModel)]="form_.modelo"></td>
-                  <td colspan="1">COLOR <input type="text"  formControlName="color" [(ngModel)]="form_.color"></td>
-                </tr>
-                <tr>
-                  <td rowspan="2" style="width:3cm;">PLACAS <input type="text"  formControlName="placas" [(ngModel)]="form_.placas"></td>
-                  <td colspan="3">INGRESO EN GRUA</td>
-                  <td colspan="2" rowspan="2">KILOMETRAJE <input type="text"  formControlName="km" [(ngModel)]="form_.km"></td>
-                </tr>
-                <tr>
-                  <td>SI <input type="radio" formControlName="grua" [(ngModel)]="form_.grua" value="si"></td>
-                  <td colspan="2">NO <input type="radio" formControlName="grua" [(ngModel)]="form_.grua" value="no"></td>
-                </tr>
-                <tr>
-                  <td colspan="4">SERIE <input type="text"  formControlName="serie" [(ngModel)]="form_.serie"></td>
-                  <td>ASEGURADO <br> <input type="radio"  formControlName="aseg" [(ngModel)]="form_.aseg" value="si"></td>
-                  <td>TERCERO <br> <input type="radio"  formControlName="aseg" [(ngModel)]="form_.aseg" value="no"></td>
-                </tr>
-                <tr>
-                  <td colspan="6">SINIESTRO</td>
-                </tr>
-                <td colspan="6"><input type="text"  formControlName="sini" [(ngModel)]="form_.sini"></td>                
-              </table>
-            </td>
-            <td></td>
-            <td>
-              <table style="height: 100%; margin-bottom: 0; font-size: 0.85em;" id="table1_">              
-                <tr>
-                  <th colspan="2">DATOS DEL CLIENTE</th>
-                </tr>
-                <tr>
-                  <td>INGRESO</td>
-                  <td>CIRCULACIÓN</td>
-                </tr>
-                <tr>
-                  <td><input type="date"  formControlName="ingreso" [(ngModel)]="form_.ingreso"></td>
-                  <td><input type="date"  formControlName="circu" [(ngModel)]="form_.circu"></td>
-                </tr>
-                <tr>
-                  <td colspan="2">NOMBRE <input type="text"  formControlName="nombre" [(ngModel)]="form_.nombre"></td>
-                </tr>
-                <tr>
-                  <td colspan="2">TELEFONOS <input type="text"  formControlName="tel" [(ngModel)]="form_.tel"></td>
-                </tr>
-                <tr>
-                  <td colspan="2">DATOS DE DEDUCIBLE <textarea rows="2" formControlName="datos" [(ngModel)]="form_.datos"></textarea></td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
 
-        <table>
-          <tr>
-            <td style="width: 2.88cm;" (click)="general();">
-              <img *ngIf="!gen" style="width:88%;" src="assets/general2.png">
-              <img *ngIf="gen" style="width:88%;" src="assets/general.png">
-            </td>
-            <td style="width: 2.88cm;" (click)="zurich();">
-              <img *ngIf="!zur" style="width:88%;" src="assets/zurich2.png">
-              <img *ngIf="zur" style="width:88%;" src="assets/zurich.png">
-            </td>
-            <td style="width: 2.88cm;" (click)="qualitas();">
-              <img *ngIf="!qua" style="width:88%;" src="assets/Qualitas2.png">
-              <img *ngIf="qua" style="width:88%;" src="assets/Qualitas1.png">
-            </td>
-            <td style="width: 2.88cm;" (click)="atlas();">
-              <img *ngIf="!atl" style="width:88%;" src="assets/atlas2.png">
-              <img *ngIf="atl" style="width:88%;" src="assets/atlas.jpg">
-            </td>
-            <td style="width: 2.88cm;" (click)="potosi();">
-              <img *ngIf="!pot" style="width:88%;" src="assets/potosi2.png">
-              <img *ngIf="pot" style="width:88%;" src="assets/potosi.png">
-            </td>
-            <td style="width: 2.88cm;" (click)="afirme();">
-              <img *ngIf="!afi" style="width:88%;" src="assets/afirme2.png">
-              <img *ngIf="afi" style="width:88%;" src="assets/afirme.png">
-            </td>
-            <td style="width: 2.88cm;" (click)="multiacabados();">
-              <img *ngIf="!mul" style="width:88%;" src="assets/logo2.jpg">
-              <img *ngIf="mul" style="width:88%;" src="assets/logo.jpg">
-            </td>
-          </tr>
-        </table>
-
-        <table id="table1_">
-          <tr>
-            <th style="letter-spacing: .5em;">OBSERVACIONES</th>
-          </tr>
-          <tr>
-            <td><textarea rows="6" formControlName="obser" [(ngModel)]="form_.obser"></textarea></td>
-          </tr>
-        </table>
-
-        <table>
-          <tr>
-            <td>
-              <table style="min-width: 11cm; margin-bottom: 0;" id="table1_">
-                <tr>
-                  <th colspan="4">INVENTARIO</th>
-                </tr>
-                <tr>
-                  <td>Gato</td>
-                  <td><input type="checkbox" formControlName="gato" [(ngModel)]="form_.gato"></td>
-                  <td>Antena</td>
-                  <td><input type="checkbox" formControlName="antena" [(ngModel)]="form_.antena"></td>
-                </tr>
-                <tr>
-                  <td>Herramienta</td>
-                  <td><input type="checkbox" formControlName="herra" [(ngModel)]="form_.herra"></td>
-                  <td>Emblemas</td>
-                  <td><input type="checkbox" formControlName="emble" [(ngModel)]="form_.emble"></td>
-                </tr>
-                <tr>
-                  <td>Triangulos</td>
-                  <td><input type="checkbox" formControlName="trian" [(ngModel)]="form_.trian"></td>
-                  <td>Tapones de Rueda</td>
-                  <td><input type="checkbox" formControlName="tapo" [(ngModel)]="form_.tapo"></td>
-                </tr>
-                <tr>
-                  <td>Tapetes</td>
-                  <td><input type="checkbox" formControlName="tapet" [(ngModel)]="form_.tapet"></td>
-                  <td>Cables</td>
-                  <td><input type="checkbox" formControlName="cables" [(ngModel)]="form_.cables"></td>
-                </tr>
-                <tr>
-                  <td>Llanta refacción</td>
-                  <td><input type="checkbox" formControlName="llanta" [(ngModel)]="form_.llanta"></td>
-                  <td>Stereo</td>
-                  <td><input type="checkbox" formControlName="stereo" [(ngModel)]="form_.stereo"></td>
-                </tr>
-                <tr>
-                  <td>Extinguidor</td>
-                  <td><input type="checkbox" formControlName="extin" [(ngModel)]="form_.extin"></td>
-                  <td>Encendedor</td>
-                  <td><input type="checkbox" formControlName="encen" [(ngModel)]="form_.encen"></td>
-                </tr>
-              </table>
-            </td>
-            <td>
-              <table>
-                <tr>
-                  <td rowspan="2">
-                    <div class="gauge_">
-                      <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="needleValue"
-                        [centralLabel]="centralLabel" [options]="options" (onEndEvent)="drawComplete()" [name]="name" [bottomLabel]="bottomLabel">
-                      </rg-gauge-chart>
-                      <input id="slider" type="range" min="0" max="100" class="no-print" (change)="combus($event)" formControlName="gas" [(ngModel)]="form_.gas"/>
-                    </div>
-                  </td>
-                  <td style="width: 1.5cm;" (click)="airbag()">
-                    <img *ngIf="!air" style="width: 95%;" src="assets/airbag1.jpg" alt="">
-                    <img *ngIf="air" style="width: 95%;" src="assets/airbag2.jpg" alt="">
-                  </td>
-                  <td style="width: 1.5cm;" (click)="engine()">
-                    <img *ngIf="!eng" style="width: 95%;" src="assets/engine1.jpg" alt="">
-                    <img *ngIf="eng" style="width: 95%;" src="assets/engine2.jpg" alt="">
-                  </td>
-                </tr>
-                <tr>
-                  <td (click)="abs_()">
-                    <img *ngIf="!abs" style="width: 95%;" src="assets/ABS1.jpg" alt="">
-                    <img *ngIf="abs" style="width: 95%;" src="assets/ABS2.jpg" alt="">
-                  </td>
-                  <td (click)="oil_()">
-                    <img *ngIf="!oil" style="width: 95%;" src="assets/oil1.jpg" alt="">
-                    <img *ngIf="oil" style="width: 95%;" src="assets/oil2.jpg" alt="">
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-
-        <table>
-          <tr>
-            <td colspan="4" style="font-size: 1.2em; letter-spacing: .5em; padding-bottom: 2mm;">DAÑOS PREXISTENTES</td>
-          </tr>
-          <tr>
-            <td (click)="clear1()" style="cursor: pointer;">Lado derecho</td>
-            <td (click)="clear2()" style="cursor: pointer;">Frente</td>
-            <td (click)="clear3()" style="cursor: pointer;">Detras</td>
-            <td (click)="clear4()" style="cursor: pointer;">Lado izquierdo</td>
-          </tr>
-          <tr>
-            <td id="sig1" style="width: 5cm;">
+  <div class="app">
+    <section>
+      <div class="page">
+        <div class="inner">
+          <table>
+            <tr>
+              <td style="width: 2.5cm;"><img style="width:100%;" src="assets/povet.png"></td>
+              <td>
+                <h6>Choferes de Organizaciones Sociales y de Transporte, A.C.</h6>
+                <p style="font-size: 1.3em;">Yucatán 111 Int. 7 Col. Molino de Parras</p>
+                <p style="font-size: 1.3em;">C.P. 58010 Morelia Mich. Tel. 01(443) 382 9641</p>
+                <p>Este volante expira 10 dias después de su fecha de expedición</p>
+              </td>
+              <td style="width: 5cm;">
+                  <form [formGroup]="myForm" (ngSubmit)="submitSurveyData()" novalidate autocomplete="off">
+                <h1 style="font-size: 1.2em;">VOLANTE DE ADMISIÓN A TALLER/AGENCIA</h1>
+                <p><b style="font-size: 1.5em;">FOLIO N°</b> <input id="orden_" style="font-size: 1.5em; color: red; font-weight: 700; width: 3cm;" type="number"
+                    formControlName="orden" [(ngModel)]="form_.orden"></p>
+                  </form>
+              </td>
+            </tr>
+          </table>
+          <table id="table1_">
+            <tr>
+              <td colspan="2">
+                NUM. DE SINIESTRO
+                <input type="text" [(ngModel)]="form_.sini">
+              </td>
+              <td>
+                NUM. DE PÓLIZA
+                <input type="text" [(ngModel)]="form_.poliza">
+              </td>
+              <td style="width: 2.5cm;">
+                CERTIFICADO
+                <input type="text" [(ngModel)]="form_.certi">
+              </td>
+              <td style="width: 6cm;">
+                INTERESADO
+                <input type="text" [(ngModel)]="form_.nombre">
+              </td>
+              <td>
+                TELÉFONO
+                <input type="text" [(ngModel)]="form_.tel">
+              </td>
+            </tr>
+            <tr>
+              <td>ASEGURADO <br> <input type="radio" name="aseg" [(ngModel)]="form_.aseg" value="si"></td>
+              <td>TERCERO <br> <input type="radio" name="aseg" [(ngModel)]="form_.aseg" value="no"></td>
+              <td colspan="3">
+                AJUSTADOR
+                <input type="text" [(ngModel)]="form_.ajusta">
+              </td>
+              <td>
+                <select class="no-print" name="car" style="display: block; height: 0.8cm;" [(ngModel)]="form_.tcar">
+                  <option value="sedan">SEDAN</option>
+                  <option value="pickup">PICKUP</option>
+                  <option value="suv">SUV</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <p><input type="checkbox" [(ngModel)]="form_.asig"> ASIGNACIÓN DE TALLER</p>
+                <p><input type="checkbox" [(ngModel)]="form_.indem"> INDEMNIZACIÓN DE DAÑOS</p>
+              </td>
+              <td>
+                APLICAR DEDUCIBLE
+                <input type="text" [(ngModel)]="form_.deduci">
+              </td>
+              <td>
+                %
+                <input type="text" [(ngModel)]="form_.porcen">
+              </td>
+              <td>
+                IMPORTE DEL DEDUCIBLE
+                <p>$ <input type="text" [(ngModel)]="form_.importe" style="width: 5cm;"></p>
+              </td>
+              <td>
+                VALOR COMERCIAL DEL VEHÍCULO
+                <p>$ <input type="text" [(ngModel)]="form_.valor" style="width: 2.4cm;"></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                MARCA
+                <input type="text" [(ngModel)]="form_.marca">
+              </td>
+              <td>
+                TIPO
+                <input type="text" [(ngModel)]="form_.tipo">
+              </td>
+              <td>
+                MODELO
+                <input type="text" [(ngModel)]="form_.modelo">
+              </td>
+              <td>
+                COLOR
+                <input type="text" [(ngModel)]="form_.color">
+              </td>
+              <td>
+                NO. SERIE
+                <input type="text" [(ngModel)]="form_.serie">
+              </td>
+              <td>
+                PLACAS
+                <input type="text" [(ngModel)]="form_.placas">
+              </td>
+            </tr>
+          </table>
+          <p style="text-align: center;">DATOS DEL TALLER/AGENCIA</p>
+          <table id="table1_">
+            <tr>
+              <td style="width: 9cm;">
+                DOMICILIO
+                <input type="text" [(ngModel)]="form_.domt">
+              </td>
+              <td>
+                COLONIA
+                <input type="text" [(ngModel)]="form_.colt">
+              </td>
+              <td>
+                TELÉFONO
+                <input type="text" [(ngModel)]="form_.telt">
+              </td>
+              <td>
+                ATENCIÓN
+                <input type="text" [(ngModel)]="form_.atent">
+              </td>
+            </tr>
+          </table>        
+        
+          <table>
+            <tr>
+              <td colspan="4" style="font-size: 1.2em; letter-spacing: .5em; padding-bottom: 2mm;">DAÑOS DEL SINIESTRO
+              </td>
+            </tr>
+            <tr>
+              <td (click)="clear1()" style="cursor: pointer;">Lado derecho</td>
+              <td (click)="clear2()" style="cursor: pointer;">Frente</td>
+              <td (click)="clear3()" style="cursor: pointer;">Detras</td>
+              <td (click)="clear4()" style="cursor: pointer;">Lado izquierdo</td>
+            </tr>
+            <tr>
+              <td id="sig1" style="width: 5cm;" [ngClass]="{'sedand':form_.tcar=='sedan', 'pickupd':form_.tcar=='pickup', 'suvd':form_.tcar=='suv'}">
                 <signature-pad #sig1 [options]="signaturePadOptions" (onEndEvent)="drawComplete()"></signature-pad>
-            </td>
-            <td id="sig2" style="width: 5cm;">
+              </td>
+              <td id="sig2" style="width: 5cm;" [ngClass]="{'sedanf':form_.tcar=='sedan', 'pickupf':form_.tcar=='pickup', 'suvf':form_.tcar=='suv'}">
                 <signature-pad #sig2 [options]="signaturePadOptions" (onEndEvent)="drawComplete2()"></signature-pad>
-            <td id="sig3" style="width: 5cm;">
+              <td id="sig3" style="width: 5cm;" [ngClass]="{'sedana':form_.tcar=='sedan', 'pickupa':form_.tcar=='pickup', 'suva':form_.tcar=='suv'}">
                 <signature-pad #sig3 [options]="signaturePadOptions" (onEndEvent)="drawComplete3()"></signature-pad>
-            </td>
-            <td id="sig4" style="width: 5cm;">
+              </td>
+              <td id="sig4" style="width: 5cm;" [ngClass]="{'sedani':form_.tcar=='sedan', 'pickupi':form_.tcar=='pickup', 'suvi':form_.tcar=='suv'}">
                 <signature-pad #sig4 [options]="signaturePadOptions" (onEndEvent)="drawComplete4()"></signature-pad>
-          </tr>
-        </table>
+            </tr>
+          </table>
+          <table id="table1_">
+            <tr>
+              <td colspan="2">
+                DAÑOS MECÁNICOS
+                <textarea rows="2" [(ngModel)]="form_.danios1"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                INTERIORES
+                <textarea rows="2" [(ngModel)]="form_.inter1"></textarea>
+              </td>
+              <td>
+                BDNDDHSJDSD
+                <textarea rows="2" [(ngModel)]="form_.carac1"></textarea>
+              </td>
+            </tr>
+          </table>
 
-        <table>
+          <table>
+            <tr>
+              <td colspan="4" style="font-size: 1.2em; letter-spacing: .5em; padding-bottom: 2mm;">DAÑOS PREEXISTENTES
+              </td>
+            </tr>
+            <tr>
+              <td (click)="clear5()" style="cursor: pointer;">Lado derecho</td>
+              <td (click)="clear6()" style="cursor: pointer;">Frente</td>
+              <td (click)="clear7()" style="cursor: pointer;">Detras</td>
+              <td (click)="clear8()" style="cursor: pointer;">Lado izquierdo</td>
+            </tr>
+            <tr>
+              <td id="sig5" style="width: 5cm;" [ngClass]="{'sedand':form_.tcar=='sedan', 'pickupd':form_.tcar=='pickup', 'suvd':form_.tcar=='suv'}">
+                <signature-pad #sig5 [options]="signaturePadOptions" (onEndEvent)="drawComplete5()"></signature-pad>
+              </td>
+              <td id="sig6" style="width: 5cm;" [ngClass]="{'sedanf':form_.tcar=='sedan', 'pickupf':form_.tcar=='pickup', 'suvf':form_.tcar=='suv'}">
+                <signature-pad #sig6 [options]="signaturePadOptions" (onEndEvent)="drawComplete6()"></signature-pad>
+              <td id="sig7" style="width: 5cm;" [ngClass]="{'sedana':form_.tcar=='sedan', 'pickupa':form_.tcar=='pickup', 'suva':form_.tcar=='suv'}">
+                <signature-pad #sig7 [options]="signaturePadOptions" (onEndEvent)="drawComplete7()"></signature-pad>
+              </td>
+              <td id="sig8" style="width: 5cm;" [ngClass]="{'sedani':form_.tcar=='sedan', 'pickupi':form_.tcar=='pickup', 'suvi':form_.tcar=='suv'}">
+                <signature-pad #sig8 [options]="signaturePadOptions" (onEndEvent)="drawComplete8()"></signature-pad>
+            </tr>
+          </table>
+          <table id="table1_">
+              <tr>
+                <td colspan="2">
+                  DAÑOS MECÁNICOS
+                  <textarea rows="2" [(ngModel)]="form_.danios2"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  INTERIORES
+                  <textarea rows="2" [(ngModel)]="form_.inter2"></textarea>
+                </td>
+                <td>
+                  BDNDDHSJDSD
+                  <textarea rows="2" [(ngModel)]="form_.carac2"></textarea>
+                </td>
+              </tr>
+            </table>
+            <table id="table1_">
+              <tr>
+                <td style="text-align: left !important;">
+                  <b>IMPORTANTE</b>
+                  <p>PARA LA ENTREGA DEL VEHÍCULO, ES NECESARIO PRESENTAR AL TALLER/AGENCIA EL COMPROBANTE DE PAGO DE DEDUCIBLE HECHO EN NUESTRAS OFICINAS O DEPÓSITO A LA CUENTA NÚMERO <input type="text" style="width: 4cm;" [(ngModel)]="form_.cuent"> DE <input type="text" style="width: 6cm;" [(ngModel)]="form_.banco"> A NOMBRE DE CHOFERES DE ORGANIZACIONES SOCIALES Y DEL TRANSPORTE, A.C. SI REQUIERE COMPROBANTE FISCAL FAVOR DE SOLICITARLO EN NUESTRAS OFICINAS.</p>                  
+                  <p>EN CASO DE NO SER EL PROPIETARIO DEL VEHÍCULO O EN CASO DE PERSONAS MORALES, FAVOR DE PRESENTAR EN EL TALLER/AGENCIA UNA CARTA PODER SIMPLE Y COPIA DE IDENTIFICACIÓN DE QUIEN RECIBE EL VEHÍCULO.</p>
+                  <p>SE APLICARAN LAS DEPRECIACIONES CORRESPONDIENTES POR EL TRANSCURSO DEL TIEMPO EN LA REPOSICIÓN DE LLANTAS, BATERÍAS O MOTORES, EN BASE AL PROMEDIO DE USO QUE INDIQUE EL DIAGNÓSTICO.</p>
+                  <p>SI EL CONTRATO NO ESTUVIERE VIGENTE, O LA PRIMA NO SE HUBIERE PAGADO DENTRO DE LOS PLAZOS ESTABLECIDOS POR LA LEY, CHOFERES DE ORGANIZACIONES SOCIALES Y DEL TRANSPORTE A.C. NO ESTÁ OBLIGADO A REALIZAR PAGO ALGUNO DERIVADO DEL ACCIDENTE.</p>
+                  <p>LAS OBLIGACIONES DE CHOFERES DE ORGANIZACIONES SOCIALES Y DEL TRANSPORTE A.C. QUEDARÁN EXTINTAS EN MOMENTO EN QUE SE ACTUALICE ALGUNAS CAUSAS DE IMPROCEDENCIA, RECHAZO DE SINIESTRO Y EXTINCIÓN DE OBLIGACIONES DE PAGO PREVISTAS EN LAS CONDICIONES GENERALES DEL CERTIFICADO. QUEDANDO A CARGO DEL AGREMIADO LAS RESPONSABILIDADES QUE SE DERIVEN DE DICHO ACCIDENTE.</p>
+                  <p>EL AJUSTADOR NO DETERMINA EL MONTO DE LOS DAÑOS, CAMBIOS O REPARACIONES DE PIEZAS, NI TIEMPO DE REPARACIÓN Y ENTREGA DEL VEHÍCULO.</p>
+                </td>
+              </tr>
+            </table>
+            <table id="table1_">
+              <tr>
+                <td style="text-align: left !important; height: 7mm !important;">
+                  LUGAR
+                  <input type="text" style="width: 8cm" [(ngModel)]="form_.lugar">
+                </td>
+                <td style="text-align: left !important;">
+                  DIA
+                  <input type="text" style="width: 2cm" [(ngModel)]="form_.dia">
+                </td>
+                <td style="text-align: left !important;">
+                  MES
+                  <input type="text" style="width: 2cm" [(ngModel)]="form_.mes">
+                </td>
+                <td style="text-align: left !important;">
+                  AÑO
+                  <input type="text" style="width: 2cm" [(ngModel)]="form_.anio">
+                </td>
+              </tr>
+            </table>
+
+          <table>
           <tr>
             <td>
               <div class="signature">
@@ -224,145 +259,37 @@
                   <img src="" id="imgSign" (load)="imgChanged($event)">
                 </div>
                 <hr>
-                Firma
+                FIRMA DEL AJUSTADOR
                 
-              </div><br>
-              Multiacabados
-            </td>
-            <td style="width:2.5cm;"></td>
+              </div>
+            </td>            
             <td>
                 <div class="signature">
                     <div id="contSign2" onclick = "btn_click2()">
                       <img src="" id="imgSign2" (load)="imgChanged2($event)">
                     </div>
                     <hr>
-                    Firma Cliente
-                  </div> <br>
-                  Acepto presupuesto y reparación
+                    FIRMA DEL CONDUCTOR
+                  </div>
+            </td>
+            <td>
+                <div class="signature">
+                    <div id="contSign3" onclick = "btn_click3()">
+                      <img src="" id="imgSign3" (load)="imgChanged3($event)">
+                    </div>
+                    <hr>
+                    FIRMA DEL PROPIETARIO
+                  </div>
             </td>
           </tr>
-        </table>
+        </table>          
 
-        <table>
-          <tr>
-            <td style="font-size: 0.9em;">Garantizo y aseguro que soy el dueño que estoy autorizando al taller Multiacabados la reparación. Con el trabajo ya descrito junto con las piezas de repuesto y/o materiales necesarios para la reparación.</td>
-          </tr>
-          <tr>
-            <td style="font-size: 1.2em; padding: 2mm 0 0 0;">Después de 8 días de terminada la reparación se le cobrará pensión por uso de piso.</td>
-          </tr>
-          <tr>
-            <td style="font-weight: 700;">Manuela Herrera 85-A Col. Gertrudis Bocanegra Morelia-Mich. (443) 326-28-42 (443) 156-23-09</td>
-          </tr>
-          <tr>
-            <td>multiacabadosmorelia@hotmail.com</td>
-          </tr>
-        </table>
-
-      </div>
-      <div class="no-print" id="printBtn" onclick="pdf()">
-        <img src="assets/save.png" alt="" width="75" height="75">
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="page" id="pag_2">
-      <div class="inner">
-        <div class="section6">
-          <h3 id="sub_title">ESTADO DEL VEHÍCULO HOJA 1</h3><br><br>
-          <div class="table">
-            <div class="tr thead">
-                <div class="td">Imagen</div>
-                <div class="td ">Descripción</div>
-            </div>
-            <div class="tr">
-              <div class="td">
-                <div class="image-container" id="ci1">
-                  <input type="file" accept="image/*" id="im1" name="img1" onchange="showMyImage(this)" (change)="changeListener($event)">
-                </div>
-              </div>
-              <div class="td "><textarea name="img1d" id="txa"  rows="14" wrap="soft" formControlName="desc1" [(ngModel)]="form_.desc1"></textarea></div>
-            </div>
-            <div class="tr">
-              <div class="td">
-                  <div class="image-container" id="ci2">
-                    <input type="file" accept="image/*" id="im2" name="img2" onchange="showMyImage(this)" (change)="changeListener($event)">
-                  </div>
-              </div>
-              <div class="td "><textarea name="img2d" id="txa"  rows="14" wrap="soft" formControlName="desc2" [(ngModel)]="form_.desc2"></textarea></div>
-            </div>
-            <div class="tr">
-              <div class="td">
-                  <div class="image-container" id="ci3">
-                    <input type="file" accept="image/*" id="im3" name="img3" onchange="showMyImage(this)" (change)="changeListener($event)">
-                  </div>
-              </div>
-              <div class="td "><textarea name="img3d" id="txa"  rows="14" wrap="soft" formControlName="desc3" [(ngModel)]="form_.desc3"></textarea></div>
-            </div>
-            <div class="tr">
-              <div class="td ">
-                  <div class="image-container" id="ci4">
-                    <input type="file" accept="image/*" id="im4" name="img4" onchange="showMyImage(this)" (change)="changeListener($event)">
-                  </div>
-              </div>
-              <div class="td  "><textarea name="img4d" id="txa" rows="14" wrap="soft" formControlName="desc4" [(ngModel)]="form_.desc4"></textarea></div>
-            </div>
-          </div>
         </div>
-  
-  
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="page" id="pag_3">
-      <div class="inner">
-        <div class="section6">
-          <h3 id="sub_title">ESTADO DEL VEHÍCULO HOJA 2</h3><br><br>
-          <div class="table">
-            <div class="tr thead">
-                <div class="td">Imagen</div>
-                <div class="td ">Descripción</div>
-            </div>
-            <div class="tr">
-              <div class="td">
-                <div class="image-container" id="ci5">
-                  <input type="file" accept="image/*" id="im5" name="img5" onchange="showMyImage(this)" (change)="changeListener($event)">
-                </div>
-              </div>
-              <div class="td "><textarea name="img5d" id="txa"  rows="14" wrap="soft" formControlName="desc5" [(ngModel)]="form_.desc5"></textarea></div>
-            </div>
-            <div class="tr">
-              <div class="td">
-                  <div class="image-container" id="ci6">
-                    <input type="file" accept="image/*" id="im6" name="img6" onchange="showMyImage(this)" (change)="changeListener($event)">
-                  </div>
-              </div>
-              <div class="td "><textarea name="img6d" id="txa"  rows="14" wrap="soft" formControlName="desc6" [(ngModel)]="form_.desc6"></textarea></div>
-            </div>
-            <div class="tr">
-              <div class="td">
-                  <div class="image-container" id="ci7">
-                    <input type="file" accept="image/*" id="im7" name="img7" onchange="showMyImage(this)" (change)="changeListener($event)">
-                  </div>
-              </div>
-              <div class="td "><textarea name="img7d" id="txa"  rows="14" wrap="soft" formControlName="desc7" [(ngModel)]="form_.desc7"></textarea></div>
-            </div>
-            <div class="tr">
-              <div class="td ">
-                  <div class="image-container" id="ci8">
-                    <input type="file" accept="image/*" id="im8" name="img8" onchange="showMyImage(this)" (change)="changeListener($event)">
-                  </div>
-              </div>
-              <div class="td  "><textarea name="img8d" id="txa" rows="14" wrap="soft" formControlName="desc8" [(ngModel)]="form_.desc8"></textarea></div>
-            </div>
-          </div>
+        <div class="no-print" id="printBtn" onclick="window.print()">
+          <img src="assets/print.svg" alt="" width="55" height="55">
         </div>
-  
-  
       </div>
-    </div>
-  </section>
-</div>
-</form>
+    </section>
+
+
+  </div>

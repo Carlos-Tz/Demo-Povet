@@ -8,7 +8,6 @@ import { PanelComponent } from './components/panel/panel.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { OrdenComponent } from './components/orden/orden.component';
-import { ViewOrdenComponent } from './components/view-orden/view-orden.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from 'src/environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,7 +18,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { DataTablesModule } from 'angular-datatables';
-import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
@@ -29,7 +27,6 @@ import { EditComponent } from './components/edit/edit.component';
     LoginComponent,
     NavbarComponent,
     OrdenComponent,
-    ViewOrdenComponent,
     EditComponent
   ],
   imports: [
@@ -45,8 +42,7 @@ import { EditComponent } from './components/edit/edit.component';
     ToastrModule.forRoot(),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    DataTablesModule,
-    Ng2ImgMaxModule
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,7 +27,7 @@ export class PanelComponent implements OnInit {
     this.formApi.GetFormsList().snapshotChanges().subscribe(data => {
       this.Form = [];
       data.forEach(item => {
-        let form_ = item.payload.toJSON();
+        const form_ = item.payload.toJSON();
         form_['$key'] = item.key;
         this.Form.push(form_ as Form);
       //  this.l1.push(form_);

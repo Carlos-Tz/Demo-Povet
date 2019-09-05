@@ -1,11 +1,12 @@
 var modal = document.getElementById('myModal');
-var modal2 = document.getElementById('myModal2');
-//var btn = document.getElementById("contSign");
-//var span = document.getElementsByClassName("close")[0];
 var span = document.getElementById('close');
 var canvas = document.getElementById('canvas');
+var modal2 = document.getElementById('myModal2');
 var span2 = document.getElementById('close2');
 var canvas2 = document.getElementById('canvas2');
+var modal3 = document.getElementById('myModal3');
+var span3 = document.getElementById('close3');
+var canvas3 = document.getElementById('canvas3');
 
 var signaturePad = new SignaturePad(canvas, {
     backgroundColor: 'rgba(255, 255, 255, 0)',
@@ -20,6 +21,12 @@ var signaturePad2 = new SignaturePad(canvas2, {
     maxWidth: 4,
     penColor: "rgb(33, 33, 33)"
 });
+var signaturePad3 = new SignaturePad(canvas3, {
+    backgroundColor: 'rgba(255, 255, 255, 0)',
+    minWidth: 3,
+    maxWidth: 4,
+    penColor: "rgb(33, 33, 33)"
+});
 //btn.onclick = function () {
 function btn_click() {
     modal.style.display = "block";
@@ -29,25 +36,14 @@ function btn_click2() {
     modal2.style.display = "block";
     resizeCanvas2();
 }
+function btn_click3() {
+    modal3.style.display = "block";
+    resizeCanvas3();
+}
 function btn_clear() {
     document.getElementById('imgSign').src = '';
     document.getElementById('imgSign2').src = '';
-    document.getElementById('im1').value = '';
-    document.getElementById('im2').value = '';
-    document.getElementById('im3').value = '';
-    document.getElementById('im4').value = '';
-    document.getElementById('im5').value = '';
-    document.getElementById('im6').value = '';
-    document.getElementById('im7').value = '';
-    document.getElementById('im8').value = '';
-    document.getElementById('ci1').style.backgroundImage = 'none';
-    document.getElementById('ci2').style.backgroundImage = 'none';
-    document.getElementById('ci3').style.backgroundImage = 'none';
-    document.getElementById('ci4').style.backgroundImage = 'none';
-    document.getElementById('ci5').style.backgroundImage = 'none';
-    document.getElementById('ci6').style.backgroundImage = 'none';
-    document.getElementById('ci7').style.backgroundImage = 'none';
-    document.getElementById('ci8').style.backgroundImage = 'none';
+    document.getElementById('imgSign3').src = '';
   }
 span.onclick = function () {
     modal.style.display = "none";
@@ -57,6 +53,10 @@ span2.onclick = function () {
     modal2.style.display = "none";
     document.getElementById('imgSign2').src = signaturePad2.toDataURL();
 }
+span3.onclick = function () {
+    modal3.style.display = "none";
+    document.getElementById('imgSign3').src = signaturePad3.toDataURL();
+}
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
@@ -65,6 +65,10 @@ window.onclick = function (event) {
     if (event.target == modal2) {
         modal2.style.display = "none";
         document.getElementById('imgSign2').src = signaturePad2.toDataURL();
+    }
+    if (event.target == modal3) {
+        modal3.style.display = "none";
+        document.getElementById('imgSign3').src = signaturePad3.toDataURL();
     }
 }
 
@@ -82,9 +86,17 @@ function resizeCanvas2() {
     canvas2.height = Math.ceil(h * 0.7);
     signaturePad2.clear();
 }
+function resizeCanvas3() {
+    var w = modal3.clientWidth;
+    var h = modal3.clientHeight;
+    canvas3.width = Math.ceil(w * 0.75);
+    canvas3.height = Math.ceil(h * 0.7);
+    signaturePad3.clear();
+}
 
 window.addEventListener("resize", resizeCanvas);
 window.addEventListener("resize", resizeCanvas2);
+window.addEventListener("resize", resizeCanvas3);
 
 //PDF Generator
 var page = document.title;
@@ -125,23 +137,3 @@ hoja2 = (pdf, filename, quality) => {
         pdf.save(filename);
     });
 } */
-
-function showMyImage(fileInput) {
-    var files = fileInput.files;
-    for (var i = 0; i < files.length; i++) {
-        var file = files[i];
-        var imageType = /image.*/;
-        if (!file.type.match(imageType)) {
-            continue;
-        }
-        var container = fileInput.parentNode;
-        container.file = file;
-        var reader = new FileReader();
-        reader.onload = (function (aImg) {
-            return function (e) {
-                container.style.backgroundImage = `url(${e.target.result})`;
-            };
-        })(container);
-        reader.readAsDataURL(file);
-    }
-}

@@ -74,6 +74,12 @@
 
   @media print{
     .no-print { display: none !important; }
+    table{
+      font-size: 0.8em;
+    }
+    td {
+      font-size: 0.9em;
+    }
     nav {
       display: none;
       height: 0;
@@ -98,7 +104,10 @@
       font-size: 1.2em !important;
     }
     h1 {
-      font-size: 2.5em !important;
+      font-size: 1.2em !important;
+    }
+    h6 {
+      font-size: 1.3em !important;
     }
     body {
       font-size: 0.75em !important;

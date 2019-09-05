@@ -15,17 +15,17 @@ export class FormService {
   }
 
   GetFormsList() {
-    this.formsList = this.db.list('orden-list');
+    this.formsList = this.db.list('masserati/povet-list');
     return this.formsList;
   }
 
   GetForm(key: string) {
-    this.formObject = this.db.object('orden-list/' + key);
+    this.formObject = this.db.object('masserati/povet-list/' + key);
     return this.formObject;
   }
 
   UpdateForm(form: Form, key: string) {
-    this.db.object('orden-list/' + key)
+    this.db.object('masserati/povet-list/' + key)
     .update(form);
   }
 }
