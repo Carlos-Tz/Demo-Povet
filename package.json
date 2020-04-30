@@ -31,7 +31,7 @@
     "datatables.net-dt": "^1.10.19",
     "fecha": "^3.0.3",
     "firebase": "^6.2.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jszip": "^3.2.1",
     "materialize-css": "^1.0.0-rc.2",
     "ng2-img-max": "^2.1.18",
